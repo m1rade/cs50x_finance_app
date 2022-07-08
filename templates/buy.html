@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+
+    <form action="/buy" method="post">
+        <div class="row justify-content-center mx-auto g-3 mb-5">
+            <div class="col-md-3">
+                <label class="form-label">Stock symbol</label>
+                <input autocomplete="off" autofocus class="form-control" id="symbol" name="symbol" placeholder="e.g.: NFLX" type="text">
+            </div>
+            <div class="col-md-1">
+                <label class="form-label">Quantity</label>
+                <input autocomplete="off" class="form-control" id="shares" name="shares" type="number" min="1">
+            </div>
+        </div>
+        <div class="d-grid col-3 mx-auto mb-5">
+            <button class="btn btn-primary" type="submit">Buy</button>
+        </div>
+    </form>
+    <div class="container text-center">
+        {% if message %}
+            <h2>{{ message }}</h2>
+        {% endif %}
+    </div>
+
+{% endblock %}
